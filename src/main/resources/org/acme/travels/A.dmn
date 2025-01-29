@@ -9,7 +9,7 @@
       <requiredInput href="#_4D49AAF3-6EB2-43E9-9972-EC41699D96CD" />
     </informationRequirement>
     <literalExpression id="_F61102D0-F32A-4C91-A775-367D10B848CE" typeRef="boolean" label="Adult">
-      <text>if Age &gt;=18 then true else false</text>
+      <text>if Age &gt;=16 then true else false</text>
     </literalExpression>
   </decision>
   <dmndi:DMNDI>
