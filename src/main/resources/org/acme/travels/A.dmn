@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_29021F64-C281-4DEE-9A5B-EA1A7D020F7D" id="_B3AF6DEC-704D-4719-B839-4D6C820F1FFF" name="A">
+  <inputData name="Age" id="_4D49AAF3-6EB2-43E9-9972-EC41699D96CD">
+    <variable name="Age" id="_B406B8E2-BFCE-496F-BFE7-4A9322E4EBE2" typeRef="number" />
+  </inputData>
+  <decision name="Adult" id="_C0569F35-A03C-4DE0-9548-51D522EFD1F1">
+    <variable id="_8F11EBDB-B2C3-40AC-B269-7D5E17725938" typeRef="boolean" name="Adult" />
+    <informationRequirement id="_BB9186C7-C9AD-46F3-A38D-8617B4CA66DF">
+      <requiredInput href="#_4D49AAF3-6EB2-43E9-9972-EC41699D96CD" />
+    </informationRequirement>
+    <literalExpression id="_F61102D0-F32A-4C91-A775-367D10B848CE" typeRef="boolean" label="Adult">
+      <text>if Age &gt;=18 then true else false</text>
+    </literalExpression>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_C6D965CE-AAF6-4291-A59C-B5959E62611B" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_F61102D0-F32A-4C91-A775-367D10B848CE">
+            <kie:width>466</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_F8DABF1F-9DFA-4F9A-95B5-506469B6FDF8" dmnElementRef="_4D49AAF3-6EB2-43E9-9972-EC41699D96CD" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="300" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_EB515F25-4E95-4EC1-8B32-C1C8A53E2546" dmnElementRef="_C0569F35-A03C-4DE0-9548-51D522EFD1F1" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="100" y="100" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_F9ED52D6-3780-4F5C-BE7D-84BCE7323027-AUTO-TARGET" dmnElementRef="_BB9186C7-C9AD-46F3-A38D-8617B4CA66DF" sourceElement="_F8DABF1F-9DFA-4F9A-95B5-506469B6FDF8" targetElement="_EB515F25-4E95-4EC1-8B32-C1C8A53E2546">
+        <di:waypoint x="180" y="340" />
+        <di:waypoint x="180" y="140" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
