@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20230324/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20230324/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:kie="https://kie.org/dmn/extensions/1.0" expressionLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/" namespace="https://kie.org/dmn/_3DC89883-1AA4-4167-8EF2-9AD04BECA0F8" id="_11E80AD1-B029-4FF3-89B9-9801BDA20010" name="Galad">
+  <itemDefinition id="_717355E8-6545-4263-A8D3-8229F1BBC49D" name="tGaladResult" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_6063462D-EF96-47C2-84A3-9B63FEB39604" name="Recommendation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_16C7836A-9D90-44F3-847A-71F8366B2E53" name="Interpertation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_3B892A6E-E162-4DAA-B8F9-51BBD97D6AD5" name="tGender" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <typeRef>string</typeRef>
+    <typeConstraint id="_68C47E22-8871-454C-8D8A-9D4E510459B2" kie:constraintType="enumeration">
+      <text>&quot;Female&quot;, &quot;Male&quot;</text>
+    </typeConstraint>
+  </itemDefinition>
+  <itemDefinition id="_24953C36-FD34-4DCC-A77D-6B37D97C8D44" name="tPercent" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <typeRef>number</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_314A0EF8-8F0D-44DA-A6A8-582D7F29FB42" name="tCategory" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <typeRef>string</typeRef>
+  </itemDefinition>
+  <itemDefinition id="_65D1A1F6-3511-4A3D-9FAF-42B7293BA5B8" name="tGaladScore" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_0FE5E6D6-77C0-40EE-A2F0-487861399E9C" name="Risk score" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_2983AF56-12E1-4761-AFEF-EF5AC4909563" name="Probability of HCC" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>tPercent</typeRef>
+    </itemComponent>
+    <itemComponent id="_633B944C-DC0B-405B-9C9F-EF91C464C6C9" name="Category" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>tCategory</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <itemDefinition id="_1C81F8B1-E417-4A70-B112-56FE32064A0B" name="tPatient" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <itemComponent id="_2DA64F68-EDBC-4485-B683-1CCD71671FA1" name="Name" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>string</typeRef>
+    </itemComponent>
+    <itemComponent id="_AC9E3567-D6E5-4621-8BF0-47E454912B24" name="Age" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_D36BC711-E350-49D5-A87F-66E8E7B036A7" name="Gender" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>tGender</typeRef>
+    </itemComponent>
+    <itemComponent id="_B21CC725-7D89-4925-886B-F3E11AF738BE" name="afp" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_C6CEF6FA-F1B3-4F50-86B4-A9BFDD704F76" name="afpl3" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+    <itemComponent id="_4CDF8634-18E3-4969-8860-6CF918300179" name="dcp" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <typeRef>number</typeRef>
+    </itemComponent>
+  </itemDefinition>
+  <inputData name="Patient" id="_0FB60F94-5A16-429D-8DC4-B33B350AFA6C">
+    <variable name="Patient" id="_E7B31A04-9306-471F-81D1-2321CF16CA4E" typeRef="tPatient" />
+  </inputData>
+  <decision name="Score" id="_222E3665-36F9-436E-81DE-A1320A637E77">
+    <variable id="_AA289EA0-0CC0-49E0-860D-7302ECF4B34A" typeRef="tGaladScore" name="Score" />
+    <informationRequirement id="_FA0D40E8-84F1-4C06-8AE4-B969781E35BA">
+      <requiredInput href="#_0FB60F94-5A16-429D-8DC4-B33B350AFA6C" />
+    </informationRequirement>
+    <context id="_6EFD651D-2253-433F-82FA-305667342E25" typeRef="tGaladScore" label="Score">
+      <contextEntry id="_3EAECFEF-E4C7-40E1-8742-282F05D27E8D">
+        <variable id="_D6750FBC-A102-411C-9487-5F43812802C6" name="Sex" typeRef="number">
+          <description></description>
+        </variable>
+        <literalExpression id="_A421B19C-F5A2-4CFF-BD0E-A533A9AB197E" typeRef="number" label="Sex">
+          <text>if Patient.Gender = &quot;Male&quot; then 1 else 0</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_138F2895-8D9D-44C5-8E11-3BEBB5373FE0">
+        <variable id="_DFA434F8-F560-4E3C-A860-46D213A01141" name="Risk score" typeRef="number" />
+        <literalExpression id="_AFD058B9-3289-4D4E-BE7B-21824BC2128F" typeRef="number" label="Risk score">
+          <text>-10.08 + 0.09 * Patient.Age + 1.67 * Sex + 2.34 * (log(Patient.afp)/log(10)) + 0.04 * Patient.afpl3 + 1.33 * (log(Patient.dcp)/log(10))</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_45BBC252-07DC-453C-8A13-90E6E6DA4C8F">
+        <variable id="_42A99E07-006E-44DC-B5EC-B7A4A285A78D" name="Probability of HCC" typeRef="tPercent">
+          <description></description>
+        </variable>
+        <literalExpression id="_AB90917C-BDA8-489D-B7F1-A0E351110FF7" typeRef="tPercent" label="Probability of HCC">
+          <text>exp(Risk score)/(1+exp(Risk score))*100</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry id="_253218BB-AEA0-4B4D-9391-98F330E6D0D2">
+        <variable id="_6774011C-80B4-44FE-B488-4D549B97555F" name="Category" typeRef="tCategory">
+          <description></description>
+        </variable>
+        <decisionTable id="_5C2402F2-3BA3-4169-85B3-8EC7F958B5A3" typeRef="tCategory" hitPolicy="UNIQUE" label="Category">
+          <input id="_401AF2B2-D8A5-483D-A79D-668D4D0FBB21">
+            <inputExpression id="_53BFE2A0-9FB5-4ED6-87C0-5E26DAA59D46" typeRef="tPercent">
+              <text>Probability of HCC</text>
+            </inputExpression>
+          </input>
+          <output id="_E24895E5-9B34-4843-9151-E8105C5FA8D8" name="Output-1" />
+          <annotation name="Annotations" />
+          <rule id="_C7C1CDAB-BE5A-4D80-B914-7AD79FFE606E">
+            <inputEntry id="_2498B532-FA06-4497-A289-6CDD4FF725FC">
+              <text>&lt;=33</text>
+            </inputEntry>
+            <outputEntry id="_63D70950-F304-4574-9F02-CE78B37D008E">
+              <text>&quot;Low&quot;</text>
+            </outputEntry>
+            <annotationEntry>
+              <text>// Your annotations here</text>
+            </annotationEntry>
+          </rule>
+          <rule id="_8EA74DAE-C2D4-45F3-959A-5857D30A5DB6">
+            <inputEntry id="_0BA97F0A-C78C-4928-802C-46FAF4A4B1AE">
+              <text>(33..66]</text>
+            </inputEntry>
+            <outputEntry id="_A1A5813B-19D5-407F-8F86-D2C774AB82A7">
+              <text>&quot;Intermediate&quot;</text>
+            </outputEntry>
+            <annotationEntry>
+              <text></text>
+            </annotationEntry>
+          </rule>
+          <rule id="_3E540680-6ABA-4803-9DEA-ED67765C145B">
+            <inputEntry id="_74D82A9A-E34A-42BA-8CB7-49C6EDB2AD4E">
+              <text>&gt;66</text>
+            </inputEntry>
+            <outputEntry id="_09901481-4644-42D2-B494-45478BBDEAE7">
+              <text>&quot;High&quot;</text>
+            </outputEntry>
+            <annotationEntry>
+              <text></text>
+            </annotationEntry>
+          </rule>
+        </decisionTable>
+      </contextEntry>
+      <contextEntry id="_18AFF9B0-0F1C-4B65-8B68-E70F2E782894">
+        <variable id="_45A6C65E-E701-40A6-B79A-610BD594119C" name="Name" typeRef="string">
+          <description></description>
+        </variable>
+        <literalExpression id="_CF4B8CA7-EE18-42AE-BE76-FE151E72D9A5" typeRef="string" label="Name">
+          <text>Patient.Name</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
+  <decision name="GALAD result" id="_01B0757D-3F4D-413D-B501-E650C5396609">
+    <variable id="_DF16F8B8-A03A-4C3B-8C08-9432F673645B" typeRef="tGaladResult" name="GALAD result" />
+    <informationRequirement id="_C6FB8C82-62B0-40A5-A017-E1E315C2F88A">
+      <requiredDecision href="#_222E3665-36F9-436E-81DE-A1320A637E77" />
+    </informationRequirement>
+    <informationRequirement id="_470BC06B-C2F6-477C-96CA-DC1DC0C4EA69">
+      <requiredInput href="#_0FB60F94-5A16-429D-8DC4-B33B350AFA6C" />
+    </informationRequirement>
+    <context id="_704EE73A-ACAF-4F3C-832A-851513D7F3FD" typeRef="tGaladResult" label="GALAD result">
+      <contextEntry id="_9B3FE476-2502-45E7-991D-1A06461EF16C">
+        <variable id="_F98A3989-B292-47E2-92CA-94435EE2593E" name="Recommendation" typeRef="string">
+          <description></description>
+        </variable>
+        <decisionTable id="_736ADD44-A173-4FF6-845B-7ADF182C5AE0" typeRef="string" hitPolicy="ANY" label="Recommendation">
+          <input id="_CE99CCE4-E170-43D9-9DD0-67DB46DC94A9">
+            <inputExpression id="_CDF7B599-AFBF-4BC6-A8FB-75C77458293C" typeRef="tCategory">
+              <text>Score.Category</text>
+            </inputExpression>
+          </input>
+          <input id="_C1B2FFF0-EAA0-49B9-B897-54C921E5A64F">
+            <inputExpression id="_AB9A0806-4A9F-49CB-9461-ABCB351C2BAE" typeRef="tGender">
+              <text>Patient.Gender</text>
+            </inputExpression>
+          </input>
+          <output id="_DB28F6D1-75F6-461E-AF19-F34CE63D2268" name="Output-1" />
+          <annotation name="Annotations" />
+          <rule id="_2F99DECC-7B4E-4A8A-B6E8-1FA9F0842286">
+            <inputEntry id="_E672E799-1AE8-45E0-B1E1-31B4E9A59E6D">
+              <text>&quot;High&quot;</text>
+            </inputEntry>
+            <inputEntry id="_239CD5AF-D22C-4064-A1D8-6F73615D0311">
+              <text>&quot;Male&quot;</text>
+            </inputEntry>
+            <outputEntry id="_B6185EA2-5B66-477C-8085-C958928D977A">
+              <text>&quot;Hei &quot; + string(Patient.Name) + string(&quot;, male&apos;s in in the age of &quot;) + string(Patient.Age) + string(&quot; that has the result of GALAD score categorized as High, indicates that you liver problem.&quot;)</text>
+            </outputEntry>
+            <annotationEntry>
+              <text>// Your annotations here</text>
+            </annotationEntry>
+          </rule>
+          <rule id="_818B3177-3862-4A4E-B17D-40B5C5F8D8D0">
+            <inputEntry id="_F378C601-9DC3-4ECE-8254-E85151534B81">
+              <text>&quot;High&quot;</text>
+            </inputEntry>
+            <inputEntry id="_8D36CCB2-16E0-4412-8F90-5833A3E49074">
+              <text>&quot;Female&quot;</text>
+            </inputEntry>
+            <outputEntry id="_0A23E1F5-01D8-4446-A466-3D71FF0641E1">
+              <text>&quot;Hei &quot; + string(Patient.Name) + string(&quot;, when you ara a femail in in the age of &quot;) + string(Patient.Age) + string(&quot; that has the result of GALAD score categorized as High, indicates that you liver problem.&quot;)</text>
+            </outputEntry>
+            <annotationEntry>
+              <text></text>
+            </annotationEntry>
+          </rule>
+          <rule id="_F5A77B22-8D6F-4D2F-83EE-86298F66F90F">
+            <inputEntry id="_6D607966-A87F-4CAF-8548-72434A6CD9C1">
+              <text>&quot;Intermediate&quot;</text>
+            </inputEntry>
+            <inputEntry id="_D5733C8C-586B-4486-A8F2-63A7F0B76A2B">
+              <text>-</text>
+            </inputEntry>
+            <outputEntry id="_CEAFAA76-BFB6-4EB6-B00A-A05A6D99B7C1">
+              <text>&quot;What&quot;</text>
+            </outputEntry>
+            <annotationEntry>
+              <text></text>
+            </annotationEntry>
+          </rule>
+          <rule id="_9B357A60-D95A-48C5-A515-233214A381D3">
+            <inputEntry id="_75C2A87D-C0E7-4C34-8A2C-83355F5B7957">
+              <text>&quot;Low&quot;</text>
+            </inputEntry>
+            <inputEntry id="_CA46D595-5AD3-45C4-9E8B-96E978ED5DB1">
+              <text>-</text>
+            </inputEntry>
+            <outputEntry id="_B655AD30-1E25-4A80-BD69-2FF4E54BE949">
+              <text>&quot;Fine&quot;</text>
+            </outputEntry>
+            <annotationEntry>
+              <text></text>
+            </annotationEntry>
+          </rule>
+        </decisionTable>
+      </contextEntry>
+      <contextEntry id="_F4F51B5A-1628-4254-8B89-7B805E57F4E9">
+        <variable id="_47B04F29-809E-47AD-B378-5D22657E2A97" name="Interpertation" typeRef="string" />
+        <literalExpression id="_0E335E63-E800-4390-BD2F-356A29499EF2" typeRef="string" label="Interpertation">
+          <text>Patient.Gender</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_1B0FB4E1-A7F7-4A23-A891-2621D072FAAE" name="Default DRD" useAlternativeInputDataShape="false">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_4E6B504B-0D11-443B-A56F-F47EC074FD98">
+            <kie:width>257</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0938C524-E972-4791-9E53-F6AF73CCDA96">
+            <kie:width>729</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_8D2F9C60-6C5E-453E-BA00-D5F26C078FBC">
+            <kie:width>729</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_F59177E9-17B1-4EC0-A286-7777DE5455FD">
+            <kie:width>729</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B897613F-1EF4-402A-A63F-6F44BEA5FE29">
+            <kie:width>729</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_53A9DF0A-B711-4B5B-A6D3-F45CFA269DB7">
+            <kie:width>776</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_6EFD651D-2253-433F-82FA-305667342E25">
+            <kie:width>253</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AFD058B9-3289-4D4E-BE7B-21824BC2128F">
+            <kie:width>800</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B26AB528-FE75-4E6B-8F4C-4E8C281E8479">
+            <kie:width>578</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AB90917C-BDA8-489D-B7F1-A0E351110FF7">
+            <kie:width>800</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_17C2403E-4E69-4838-ADDB-2E8D3E317455">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_CF4B8CA7-EE18-42AE-BE76-FE151E72D9A5">
+            <kie:width>800</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5C2402F2-3BA3-4169-85B3-8EC7F958B5A3">
+            <kie:width>60</kie:width>
+            <kie:width>216</kie:width>
+            <kie:width>273</kie:width>
+            <kie:width>271</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A421B19C-F5A2-4CFF-BD0E-A533A9AB197E">
+            <kie:width>800</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5C1D13AB-5535-4CBE-B2A2-CC64E3346972">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_C21F954B-D91B-4F1B-A5AF-191FE1FB60CB">
+            <kie:width>60</kie:width>
+            <kie:width>273</kie:width>
+            <kie:width>384</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_DBB66BE2-A0C8-4E29-94BF-D5D02224685C">
+            <kie:width>933</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_A76CCC13-F851-4537-B3C9-0E82744ED6CA">
+            <kie:width>661</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_D9839924-3E3F-45FD-A95A-52917122A392">
+            <kie:width>60</kie:width>
+            <kie:width>302</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_AB18B3F3-1D00-4BF6-9BCE-4D1B942DB044">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_7F9376C6-C25A-4C85-B046-37D11E3A2167">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_3BDA3353-CB40-4E33-9237-E3E885EBBA4D">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_1A1C636E-B77C-440A-940D-D2D113FF0041">
+            <kie:width>570</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_36A0225F-2A80-4BC8-A459-E0901CE9905C">
+            <kie:width>140</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_704EE73A-ACAF-4F3C-832A-851513D7F3FD">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_740CC2D6-9728-42B2-8F0B-78A2DC1389B3">
+            <kie:width>697</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_0E335E63-E800-4390-BD2F-356A29499EF2">
+            <kie:width>2337</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_5D281671-FC7B-47C7-838A-4DEB7D05E49E">
+            <kie:width>190</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_736ADD44-A173-4FF6-845B-7ADF182C5AE0">
+            <kie:width>60</kie:width>
+            <kie:width>193</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>1673</kie:width>
+            <kie:width>331</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="_FE23F133-AFF9-4443-8DD8-0317F097AD50" dmnElementRef="_0FB60F94-5A16-429D-8DC4-B33B350AFA6C" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="880" y="500" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="_A0E00ABD-9A26-4DB5-9590-7C1AA79384CF" dmnElementRef="_222E3665-36F9-436E-81DE-A1320A637E77" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="720" y="300" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_A521B130-069B-46A2-B930-F2A2B3559C66-AUTO-TARGET" dmnElementRef="_FA0D40E8-84F1-4C06-8AE4-B969781E35BA" sourceElement="_FE23F133-AFF9-4443-8DD8-0317F097AD50" targetElement="_A0E00ABD-9A26-4DB5-9590-7C1AA79384CF">
+        <di:waypoint x="960" y="540" />
+        <di:waypoint x="800" y="340" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_C34B07D7-B37B-4FB4-A885-7579CBB0AA6D" dmnElementRef="_01B0757D-3F4D-413D-B501-E650C5396609" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="720" y="160" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_F3DB3A7D-77F9-4958-A809-D915C9EA33E7-AUTO-TARGET" dmnElementRef="_C6FB8C82-62B0-40A5-A017-E1E315C2F88A" sourceElement="_A0E00ABD-9A26-4DB5-9590-7C1AA79384CF" targetElement="_C34B07D7-B37B-4FB4-A885-7579CBB0AA6D">
+        <di:waypoint x="800" y="340" />
+        <di:waypoint x="800" y="200" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_9BDC81B9-2B3E-49FD-AD91-AB4F31F7FA9B" dmnElementRef="_470BC06B-C2F6-477C-96CA-DC1DC0C4EA69" sourceElement="_FE23F133-AFF9-4443-8DD8-0317F097AD50" targetElement="_C34B07D7-B37B-4FB4-A885-7579CBB0AA6D">
+        <di:waypoint x="960" y="540" />
+        <di:waypoint x="960" y="200" />
+        <di:waypoint x="800" y="200" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
