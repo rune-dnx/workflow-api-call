@@ -201,7 +201,7 @@
               <text>-</text>
             </inputEntry>
             <outputEntry id="_CEAFAA76-BFB6-4EB6-B00A-A05A6D99B7C1">
-              <text>&quot;What&quot;</text>
+              <text>&quot;Hei &quot; + string(Patient.Name) + string(&quot;, when you in the age of &quot;) + string(Patient.Age) + string(&quot; the result of GALAD score categorized you as intermediateas. You should regualrly visit your doctor for consultation. &quot;)</text>
             </outputEntry>
             <annotationEntry>
               <text></text>
@@ -215,7 +215,7 @@
               <text>-</text>
             </inputEntry>
             <outputEntry id="_B655AD30-1E25-4A80-BD69-2FF4E54BE949">
-              <text>&quot;Fine&quot;</text>
+              <text>&quot;Hei &quot; + string(Patient.Name) + string(&quot;, when you in the age of &quot;) + string(Patient.Age) + string(&quot; the result of GALAD score categorized you as Low. No worries&quot;)</text>
             </outputEntry>
             <annotationEntry>
               <text></text>
@@ -323,16 +323,16 @@
             <kie:width>697</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_0E335E63-E800-4390-BD2F-356A29499EF2">
-            <kie:width>2337</kie:width>
+            <kie:width>1272</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_5D281671-FC7B-47C7-838A-4DEB7D05E49E">
             <kie:width>190</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_736ADD44-A173-4FF6-845B-7ADF182C5AE0">
             <kie:width>60</kie:width>
-            <kie:width>193</kie:width>
             <kie:width>100</kie:width>
-            <kie:width>1673</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>701</kie:width>
             <kie:width>331</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
