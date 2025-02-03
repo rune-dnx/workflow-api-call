@@ -140,14 +140,14 @@
     </context>
   </decision>
   <decision name="GALAD result" id="_01B0757D-3F4D-413D-B501-E650C5396609">
-    <variable id="_DF16F8B8-A03A-4C3B-8C08-9432F673645B" typeRef="tGaladResult" name="GALAD result" />
+    <variable id="_DF16F8B8-A03A-4C3B-8C08-9432F673645B" typeRef="string" name="GALAD result" />
     <informationRequirement id="_C6FB8C82-62B0-40A5-A017-E1E315C2F88A">
       <requiredDecision href="#_222E3665-36F9-436E-81DE-A1320A637E77" />
     </informationRequirement>
     <informationRequirement id="_470BC06B-C2F6-477C-96CA-DC1DC0C4EA69">
       <requiredInput href="#_0FB60F94-5A16-429D-8DC4-B33B350AFA6C" />
     </informationRequirement>
-    <context id="_704EE73A-ACAF-4F3C-832A-851513D7F3FD" typeRef="tGaladResult" label="GALAD result">
+    <context id="_704EE73A-ACAF-4F3C-832A-851513D7F3FD" typeRef="string" label="GALAD result">
       <contextEntry id="_9B3FE476-2502-45E7-991D-1A06461EF16C">
         <variable id="_F98A3989-B292-47E2-92CA-94435EE2593E" name="Recommendation" typeRef="string">
           <description></description>
@@ -227,6 +227,11 @@
         <variable id="_47B04F29-809E-47AD-B378-5D22657E2A97" name="Interpertation" typeRef="string" />
         <literalExpression id="_0E335E63-E800-4390-BD2F-356A29499EF2" typeRef="string" label="Interpertation">
           <text>Patient.Gender</text>
+        </literalExpression>
+      </contextEntry>
+      <contextEntry>
+        <literalExpression id="_07D1DE60-3C9C-4FE8-96AC-633788FFDD7E" typeRef="tGaladResult" label="GALAD result">
+          <text>Recommendation</text>
         </literalExpression>
       </contextEntry>
     </context>
@@ -334,6 +339,9 @@
             <kie:width>100</kie:width>
             <kie:width>701</kie:width>
             <kie:width>331</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_07D1DE60-3C9C-4FE8-96AC-633788FFDD7E">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
