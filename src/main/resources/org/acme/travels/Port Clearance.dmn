@@ -149,14 +149,14 @@
 &lt;p&gt;Reading this decision table, we can see that only the rule on row #1 will allow the ship to enter.&lt;/p&gt;</semantic:description>
     <semantic:question>Can the ship enter a Dutch port on a certain date?</semantic:question>
     <semantic:allowedAnswers>Yes (true) or No (false)</semantic:allowedAnswers>
-    <semantic:variable name="Ship can enter a Dutch port" id="_9bee414d-9e47-45cf-8d97-34df344b65b6" typeRef="boolean" />
+    <semantic:variable name="Ship can enter a Dutch port" id="_9bee414d-9e47-45cf-8d97-34df344b65b6" typeRef="string" />
     <semantic:informationRequirement id="_79f0d91c-e442-4d6d-9444-52cf7f5ba7c3">
       <semantic:requiredDecision href="#_c97d5e0b-2531-4021-aeb4-09180ac42fef" />
     </semantic:informationRequirement>
     <semantic:informationRequirement id="_9a0c129f-262a-43d3-86d5-d1f9c28c22a7">
       <semantic:requiredDecision href="#_aaa21dff-917a-4e51-bb43-33519a273e69" />
     </semantic:informationRequirement>
-    <semantic:decisionTable triso:descriptionVisible="false" id="_498352ab-f9bc-4a85-8a7d-026de56bc8e0" hitPolicy="UNIQUE" outputLabel="Ship can enter a Dutch port" typeRef="boolean" triso:expressionId="_a3e49e46-98bb-428e-b582-e5b58f2049a4">
+    <semantic:decisionTable triso:descriptionVisible="false" id="_498352ab-f9bc-4a85-8a7d-026de56bc8e0" hitPolicy="UNIQUE" outputLabel="Ship can enter a Dutch port" typeRef="string" triso:expressionId="_a3e49e46-98bb-428e-b582-e5b58f2049a4" label="Ship can enter a Dutch port">
       <semantic:input id="_11081de7-916a-4ff2-a101-9fff85bce094" label="Complies with safety requirements">
         <semantic:inputExpression typeRef="boolean" id="_159032F5-1B52-4966-8D50-1EAEA185BB2B">
           <semantic:text>Complies with safety requirements</semantic:text>
@@ -177,7 +177,7 @@
           <semantic:text>true</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_136a1e67-f634-47f3-94a4-eaf8d4824f51">
-          <semantic:text>true</semantic:text>
+          <semantic:text>&quot;Yes, this ship can enter the Port&quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
@@ -191,7 +191,7 @@
           <semantic:text>false</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_d850cea5-515a-4b3d-ba16-f200c2197f7a">
-          <semantic:text>false</semantic:text>
+          <semantic:text>&quot;No, The Cerificate is not valid&quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
@@ -205,7 +205,7 @@
           <semantic:text>true</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_ec84e83e-ecd4-4c41-ba6b-f7f4255343c0">
-          <semantic:text>false</semantic:text>
+          <semantic:text>&quot;No, this ship don&apos;t meet the safety requirements &quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
@@ -219,7 +219,7 @@
           <semantic:text>false</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_05922526-a461-431f-858e-4d3bc726fde7">
-          <semantic:text>false</semantic:text>
+          <semantic:text>&quot;No way!!,  this ship don&apos;t meet the safety requirements or have a valid certificate &quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
