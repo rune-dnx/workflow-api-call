@@ -10,6 +10,14 @@
       <triso:goal name="Find the best possible DMN solution to determine if a ship can enter a Dutch port on a certain date." id="_8a9dbd55-6f31-485e-8a07-61d3fa1c5ed3" />
     </triso:graphObjects>
   </semantic:extensionElements>
+  <semantic:itemDefinition id="_886964E8-8881-4EE8-B7FD-A5DA5E5EF1F5" name="tComplies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <semantic:itemComponent id="_9F52B1E4-8386-421B-B619-B9CC0A299F57" name="Reasoning" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <semantic:typeRef>string</semantic:typeRef>
+    </semantic:itemComponent>
+    <semantic:itemComponent id="_978ECA16-F001-4185-8C70-ACABA2E8D649" name="Validation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <semantic:typeRef>boolean</semantic:typeRef>
+    </semantic:itemComponent>
+  </semantic:itemDefinition>
   <semantic:itemDefinition name="tShipSize" label="tShipSize" id="_2D56C765-D81A-4014-83B9-485E23CC2860">
     <semantic:typeRef>string</semantic:typeRef>
     <semantic:allowedValues triso:constraintsType="enumeration" id="_F16AF32D-4F6B-40A7-B023-694D7EC3852C">
@@ -273,7 +281,7 @@
           <semantic:text>Ship is double hulled</semantic:text>
         </semantic:inputExpression>
       </semantic:input>
-      <semantic:output id="_dd7d0a4d-5f33-4bb6-ae06-e23fd39f7068" />
+      <semantic:output id="_dd7d0a4d-5f33-4bb6-ae06-e23fd39f7068" typeRef="boolean" name="Validation" />
       <semantic:annotation name="Description" />
       <semantic:rule id="_62b3aa14-48ed-4a04-910f-32ffc8d1a496">
         <semantic:inputEntry id="_0cc30aed-4aee-4ea2-816d-cf357575c76e">
@@ -422,6 +430,7 @@
             <kie:width>113</kie:width>
             <kie:width>175</kie:width>
             <kie:width>310</kie:width>
+            <kie:width />
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_d1869405-49bc-44c9-a989-bad8defd63ed">
             <kie:width>100</kie:width>
@@ -430,9 +439,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_498352ab-f9bc-4a85-8a7d-026de56bc8e0">
             <kie:width>100</kie:width>
-            <kie:width>231</kie:width>
-            <kie:width>255</kie:width>
-            <kie:width>256</kie:width>
+            <kie:width>282</kie:width>
+            <kie:width>369</kie:width>
+            <kie:width>524</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
