@@ -10,6 +10,14 @@
       <triso:goal name="Find the best possible DMN solution to determine if a ship can enter a Dutch port on a certain date." id="_8a9dbd55-6f31-485e-8a07-61d3fa1c5ed3" />
     </triso:graphObjects>
   </semantic:extensionElements>
+  <semantic:itemDefinition id="_886964E8-8881-4EE8-B7FD-A5DA5E5EF1F5" name="tComplies" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+    <semantic:itemComponent id="_9F52B1E4-8386-421B-B619-B9CC0A299F57" name="Reasoning" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <semantic:typeRef>string</semantic:typeRef>
+    </semantic:itemComponent>
+    <semantic:itemComponent id="_978ECA16-F001-4185-8C70-ACABA2E8D649" name="Validation" isCollection="false" typeLanguage="https://www.omg.org/spec/DMN/20230324/FEEL/">
+      <semantic:typeRef>boolean</semantic:typeRef>
+    </semantic:itemComponent>
+  </semantic:itemDefinition>
   <semantic:itemDefinition name="tShipSize" label="tShipSize" id="_2D56C765-D81A-4014-83B9-485E23CC2860">
     <semantic:typeRef>string</semantic:typeRef>
     <semantic:allowedValues triso:constraintsType="enumeration" id="_F16AF32D-4F6B-40A7-B023-694D7EC3852C">
@@ -149,14 +157,17 @@
 &lt;p&gt;Reading this decision table, we can see that only the rule on row #1 will allow the ship to enter.&lt;/p&gt;</semantic:description>
     <semantic:question>Can the ship enter a Dutch port on a certain date?</semantic:question>
     <semantic:allowedAnswers>Yes (true) or No (false)</semantic:allowedAnswers>
-    <semantic:variable name="Ship can enter a Dutch port" id="_9bee414d-9e47-45cf-8d97-34df344b65b6" typeRef="boolean" />
+    <semantic:variable name="Ship can enter a Dutch port" id="_9bee414d-9e47-45cf-8d97-34df344b65b6" typeRef="string" />
     <semantic:informationRequirement id="_79f0d91c-e442-4d6d-9444-52cf7f5ba7c3">
       <semantic:requiredDecision href="#_c97d5e0b-2531-4021-aeb4-09180ac42fef" />
     </semantic:informationRequirement>
     <semantic:informationRequirement id="_9a0c129f-262a-43d3-86d5-d1f9c28c22a7">
       <semantic:requiredDecision href="#_aaa21dff-917a-4e51-bb43-33519a273e69" />
     </semantic:informationRequirement>
-    <semantic:decisionTable triso:descriptionVisible="false" id="_498352ab-f9bc-4a85-8a7d-026de56bc8e0" hitPolicy="UNIQUE" outputLabel="Ship can enter a Dutch port" typeRef="boolean" triso:expressionId="_a3e49e46-98bb-428e-b582-e5b58f2049a4">
+    <semantic:informationRequirement id="_E2034398-0108-492E-8F93-F40635B038FA">
+      <semantic:requiredDecision href="#_dbf98322-5d1a-48ad-8d39-bc500e97a9ba" />
+    </semantic:informationRequirement>
+    <semantic:decisionTable triso:descriptionVisible="false" id="_498352ab-f9bc-4a85-8a7d-026de56bc8e0" hitPolicy="UNIQUE" outputLabel="Ship can enter a Dutch port" typeRef="string" triso:expressionId="_a3e49e46-98bb-428e-b582-e5b58f2049a4" label="Ship can enter a Dutch port">
       <semantic:input id="_11081de7-916a-4ff2-a101-9fff85bce094" label="Complies with safety requirements">
         <semantic:inputExpression typeRef="boolean" id="_159032F5-1B52-4966-8D50-1EAEA185BB2B">
           <semantic:text>Complies with safety requirements</semantic:text>
@@ -177,7 +188,7 @@
           <semantic:text>true</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_136a1e67-f634-47f3-94a4-eaf8d4824f51">
-          <semantic:text>true</semantic:text>
+          <semantic:text>&quot;Yes, this ship is considered to be a  &quot; + string(Ship Size) + &quot; ship and everyting is ok, so you can enter the Port&quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
@@ -191,7 +202,7 @@
           <semantic:text>false</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_d850cea5-515a-4b3d-ba16-f200c2197f7a">
-          <semantic:text>false</semantic:text>
+          <semantic:text>&quot;No, you can not enter the port. The Cerificate is not valid. If this is not correct please verify.&quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
@@ -205,7 +216,7 @@
           <semantic:text>true</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_ec84e83e-ecd4-4c41-ba6b-f7f4255343c0">
-          <semantic:text>false</semantic:text>
+          <semantic:text>&quot;No you can not enter the port. Even if the cetrificat is valid, and the ship meets the general requirements, the recidual cargo measurement is above the maximum value of 0.5&quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
@@ -219,7 +230,7 @@
           <semantic:text>false</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_05922526-a461-431f-858e-4d3bc726fde7">
-          <semantic:text>false</semantic:text>
+          <semantic:text>&quot;No way!!,  this ship don&apos;t meet the safety requirements or have a valid certificate &quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
@@ -270,7 +281,7 @@
           <semantic:text>Ship is double hulled</semantic:text>
         </semantic:inputExpression>
       </semantic:input>
-      <semantic:output id="_dd7d0a4d-5f33-4bb6-ae06-e23fd39f7068" />
+      <semantic:output id="_dd7d0a4d-5f33-4bb6-ae06-e23fd39f7068" typeRef="boolean" name="Validation" />
       <semantic:annotation name="Description" />
       <semantic:rule id="_62b3aa14-48ed-4a04-910f-32ffc8d1a496">
         <semantic:inputEntry id="_0cc30aed-4aee-4ea2-816d-cf357575c76e">
@@ -416,9 +427,10 @@
           <kie:ComponentWidths dmnElementRef="_2c049251-bfd1-4bf3-aba4-502e95e6d8ac">
             <kie:width>100</kie:width>
             <kie:width>216</kie:width>
-            <kie:width>210</kie:width>
-            <kie:width>209</kie:width>
+            <kie:width>113</kie:width>
+            <kie:width>175</kie:width>
             <kie:width>310</kie:width>
+            <kie:width />
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_d1869405-49bc-44c9-a989-bad8defd63ed">
             <kie:width>100</kie:width>
@@ -427,9 +439,9 @@
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_498352ab-f9bc-4a85-8a7d-026de56bc8e0">
             <kie:width>100</kie:width>
-            <kie:width>231</kie:width>
-            <kie:width>330</kie:width>
-            <kie:width>256</kie:width>
+            <kie:width>282</kie:width>
+            <kie:width>369</kie:width>
+            <kie:width>524</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -510,6 +522,11 @@
         <di:waypoint x="560" y="440" />
         <di:waypoint x="526.5" y="260" />
         <dmndi:DMNLabel sharedStyle="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" id="_7EA73290-57A2-4D35-88B9-909294FF8655" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="_837A665F-49D2-4A4B-8E8C-0A2FF640C339" dmnElementRef="_E2034398-0108-492E-8F93-F40635B038FA" sourceElement="_9bfe3674-98f4-4eaf-addf-144a3d38e6e7" targetElement="_bda7f63a-404e-4d18-98da-429d9495f7dd">
+        <di:waypoint x="203" y="413" />
+        <di:waypoint x="200" y="80" />
+        <di:waypoint x="460" y="70" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
     <dmndi:DMNStyle id="LS_a776a528-2018-4d3c-9379-b11c493d0b69_0" fontFamily="arial,helvetica,sans-serif" fontSize="11" fontBold="false" fontItalic="false" fontUnderline="false" fontStrikeThrough="false" />
