@@ -208,7 +208,7 @@
           <semantic:text>true</semantic:text>
         </semantic:inputEntry>
         <semantic:outputEntry id="_ec84e83e-ecd4-4c41-ba6b-f7f4255343c0">
-          <semantic:text>&quot;No you can not enter the port. Even if the cetrificat is valid, and the ship meets the general requirements, the recidual cargo measurement is above the maximum value of 0.5&quot;</semantic:text>
+          <semantic:text>if Ship Size = &quot;Small&quot; then &quot;No you can not enter the port. Even if the cetrificat is valid, and the ship meets the general requirements, the recidual cargo measurement is above the maximum value of 0.5&quot; else &quot;Ship more than 30 meter must be double hulled and can not have residual cargo measurements more than 0.5&quot;</semantic:text>
         </semantic:outputEntry>
         <semantic:annotationEntry>
           <semantic:text></semantic:text>
@@ -432,7 +432,7 @@
             <kie:width>100</kie:width>
             <kie:width>231</kie:width>
             <kie:width>255</kie:width>
-            <kie:width>256</kie:width>
+            <kie:width>352</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
