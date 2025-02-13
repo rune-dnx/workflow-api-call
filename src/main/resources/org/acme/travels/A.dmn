@@ -8,16 +8,112 @@
     <informationRequirement id="_BB9186C7-C9AD-46F3-A38D-8617B4CA66DF">
       <requiredInput href="#_4D49AAF3-6EB2-43E9-9972-EC41699D96CD" />
     </informationRequirement>
-    <literalExpression id="_F61102D0-F32A-4C91-A775-367D10B848CE" typeRef="boolean" label="Adult">
-      <text>if Age &gt;=16 then true else false</text>
-    </literalExpression>
+    <informationRequirement id="_56334CCE-BE24-4C04-B665-A91D0DED954B">
+      <requiredInput href="#_0C2C7F71-D1CB-4E72-B77A-6E6B0DDB1809" />
+    </informationRequirement>
+    <context id="_B4A4DC31-390B-40FC-95D0-A3B4AF98FCD2" typeRef="boolean" label="Adult">
+      <contextEntry id="_8CB51DA1-3603-41FB-ABC7-23B8F9AAFA1B">
+        <variable id="_12CE2CFB-ED58-4B19-ADBD-A800E9AC4F43" name="Validate" typeRef="boolean" />
+        <decisionTable id="_9DC343AF-A7F3-4DD0-A292-A7E163555E6F" typeRef="boolean" hitPolicy="UNIQUE" label="Validate">
+          <input id="_79F34078-E351-4E73-BFAD-E7ECCE3DFE39">
+            <inputExpression id="_6E1432E5-138A-45A4-8D70-B5AEBED77B3E" typeRef="number">
+              <text>Age</text>
+            </inputExpression>
+          </input>
+          <input id="_23776456-2698-4650-B2BD-F3745B3887F8">
+            <inputExpression id="_5EBEEAE0-636C-4657-9D06-9EA098578D54" typeRef="string">
+              <text>Country</text>
+            </inputExpression>
+          </input>
+          <output id="_6BC2EDA8-A761-470B-907D-869830455348" name="Output-1" />
+          <annotation name="Annotations" />
+          <rule id="_74FE2559-72DF-441E-A475-6074741BCBC4">
+            <inputEntry id="_A6F76D53-A452-48FC-8AA6-38C559BBCB10">
+              <text>&gt;=18</text>
+            </inputEntry>
+            <inputEntry id="_5F4200E7-08B7-4043-89D6-6B82F52AB6EF">
+              <text>&quot;No&quot;</text>
+            </inputEntry>
+            <outputEntry id="_394C68E4-7C38-4B3C-835D-65A36D8C3D1A">
+              <text>true</text>
+            </outputEntry>
+            <annotationEntry>
+              <text>// Your annotations here</text>
+            </annotationEntry>
+          </rule>
+          <rule id="_C3ABE183-805D-4776-AE53-151493D845F1">
+            <inputEntry id="_E6AA0002-EFED-435B-907C-4A0F101C6EB1">
+              <text>&lt;18</text>
+            </inputEntry>
+            <inputEntry id="_CEDC5827-8A3F-4463-8273-9CCFFC0F6CBF">
+              <text>&quot;No&quot;</text>
+            </inputEntry>
+            <outputEntry id="_E43F504C-DC88-4907-BAA0-97C977A4ED32">
+              <text>false</text>
+            </outputEntry>
+            <annotationEntry>
+              <text></text>
+            </annotationEntry>
+          </rule>
+          <rule id="_91A63A02-E967-4EC5-AA42-5244BDCCAFCF">
+            <inputEntry id="_891764D7-B911-41A5-9E22-CA23053D23A9">
+              <text>&gt;=16</text>
+            </inputEntry>
+            <inputEntry id="_BCC7E1BB-81D5-4B04-8F63-70506B63114C">
+              <text>&quot;Bz&quot;,&quot;Us&quot;</text>
+            </inputEntry>
+            <outputEntry id="_1C5E631C-46D8-4751-B09B-28DFCD032485">
+              <text>true</text>
+            </outputEntry>
+            <annotationEntry>
+              <text></text>
+            </annotationEntry>
+          </rule>
+          <rule id="_19AA2BB0-7C1F-42A7-A3B4-FD3D59C5B51C">
+            <inputEntry id="_94AF44C9-40DA-4FF7-9F6E-70A19FC3F9F0">
+              <text>&lt;16</text>
+            </inputEntry>
+            <inputEntry id="_4D63573F-D021-44CA-AF23-556F9130A56D">
+              <text>&quot;Bz&quot;,&quot;Us&quot;</text>
+            </inputEntry>
+            <outputEntry id="_3CFDFB9F-9493-4D1C-AFFB-0DA1AC8B4782">
+              <text>false</text>
+            </outputEntry>
+            <annotationEntry>
+              <text></text>
+            </annotationEntry>
+          </rule>
+        </decisionTable>
+      </contextEntry>
+      <contextEntry id="_4A8DCA5A-9CF3-40B9-BF67-EE5C2BFAF898">
+        <literalExpression id="_B19EE300-0A92-4554-9C82-B51BF3449F4E" typeRef="boolean" label="Adult">
+          <text>Validate</text>
+        </literalExpression>
+      </contextEntry>
+    </context>
   </decision>
+  <inputData name="Country" id="_0C2C7F71-D1CB-4E72-B77A-6E6B0DDB1809">
+    <variable name="Country" id="_5B212DF1-1AA6-41EA-BFAA-AA4D88B69024" typeRef="string" />
+  </inputData>
   <dmndi:DMNDI>
     <dmndi:DMNDiagram id="_C6D965CE-AAF6-4291-A59C-B5959E62611B" name="Default DRD" useAlternativeInputDataShape="false">
       <di:extension>
         <kie:ComponentsWidthsExtension>
           <kie:ComponentWidths dmnElementRef="_F61102D0-F32A-4C91-A775-367D10B848CE">
-            <kie:width>466</kie:width>
+            <kie:width>696</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B4A4DC31-390B-40FC-95D0-A3B4AF98FCD2">
+            <kie:width>120</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_9DC343AF-A7F3-4DD0-A292-A7E163555E6F">
+            <kie:width>60</kie:width>
+            <kie:width>100</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>118</kie:width>
+            <kie:width>240</kie:width>
+          </kie:ComponentWidths>
+          <kie:ComponentWidths dmnElementRef="_B19EE300-0A92-4554-9C82-B51BF3449F4E">
+            <kie:width>190</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
@@ -25,11 +121,18 @@
         <dc:Bounds x="100" y="300" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNShape id="_EB515F25-4E95-4EC1-8B32-C1C8A53E2546" dmnElementRef="_C0569F35-A03C-4DE0-9548-51D522EFD1F1" isCollapsed="false" isListedInputData="false">
-        <dc:Bounds x="100" y="100" width="160" height="80" />
+        <dc:Bounds x="220" y="100" width="160" height="80" />
       </dmndi:DMNShape>
       <dmndi:DMNEdge id="_F9ED52D6-3780-4F5C-BE7D-84BCE7323027-AUTO-TARGET" dmnElementRef="_BB9186C7-C9AD-46F3-A38D-8617B4CA66DF" sourceElement="_F8DABF1F-9DFA-4F9A-95B5-506469B6FDF8" targetElement="_EB515F25-4E95-4EC1-8B32-C1C8A53E2546">
         <di:waypoint x="180" y="340" />
-        <di:waypoint x="180" y="140" />
+        <di:waypoint x="300" y="140" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="_564C38C3-869F-40DE-9134-0056BAEC1E16" dmnElementRef="_0C2C7F71-D1CB-4E72-B77A-6E6B0DDB1809" isCollapsed="false" isListedInputData="false">
+        <dc:Bounds x="300" y="300" width="160" height="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="_B437CDDB-F8A9-406A-BB85-3A1189EEC9BB" dmnElementRef="_56334CCE-BE24-4C04-B665-A91D0DED954B" sourceElement="_564C38C3-869F-40DE-9134-0056BAEC1E16" targetElement="_EB515F25-4E95-4EC1-8B32-C1C8A53E2546">
+        <di:waypoint x="380" y="340" />
+        <di:waypoint x="300" y="140" />
       </dmndi:DMNEdge>
     </dmndi:DMNDiagram>
   </dmndi:DMNDI>

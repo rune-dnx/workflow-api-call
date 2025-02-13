@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns:xsi="xsi" id="_o4JGsLsDED2l64aQkCMlWQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+<bpmn2:definitions xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns:xsi="xsi" id="_hSmLcMw3ED2scebGCmlm0g" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
   <bpmn2:itemDefinition id="_nameItem" structureRef="String"/>
   <bpmn2:itemDefinition id="_messageItem" structureRef="String"/>
-  <bpmn2:collaboration id="_A55E10E9-2765-41D3-B999-C34B977D3BB3" name="Default Collaboration">
-    <bpmn2:participant id="_DB7ECD8C-1C24-46B0-A6E4-C76DFFE4690B" name="Pool Participant" processRef="demo1"/>
+  <bpmn2:collaboration id="_4B10B659-D6CA-4EDB-88A6-E606DC9E201E" name="Default Collaboration">
+    <bpmn2:participant id="_69B207CD-D1FC-4B62-A49B-2CB895A6F27D" name="Pool Participant" processRef="demo1"/>
   </bpmn2:collaboration>
   <bpmn2:process id="demo1" drools:packageName="org.acme.travels" drools:version="1.0" drools:adHoc="false" name="Any Value Here" isExecutable="true" processType="Public">
     <bpmn2:property id="name" itemSubjectRef="_nameItem" name="name"/>
@@ -148,7 +148,7 @@
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_o4JGsLsDED2l64aQkCMlWQ</bpmn2:source>
-    <bpmn2:target>_o4JGsLsDED2l64aQkCMlWQ</bpmn2:target>
+    <bpmn2:source>_hSmLcMw3ED2scebGCmlm0g</bpmn2:source>
+    <bpmn2:target>_hSmLcMw3ED2scebGCmlm0g</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>

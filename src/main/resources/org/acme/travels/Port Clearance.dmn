@@ -421,18 +421,19 @@
             <kie:width>216</kie:width>
             <kie:width>113</kie:width>
             <kie:width>175</kie:width>
-            <kie:width>310</kie:width>
+            <kie:width>367</kie:width>
+            <kie:width>173</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_d1869405-49bc-44c9-a989-bad8defd63ed">
             <kie:width>100</kie:width>
             <kie:width>283</kie:width>
-            <kie:width>241</kie:width>
+            <kie:width>382</kie:width>
           </kie:ComponentWidths>
           <kie:ComponentWidths dmnElementRef="_498352ab-f9bc-4a85-8a7d-026de56bc8e0">
             <kie:width>100</kie:width>
             <kie:width>231</kie:width>
             <kie:width>255</kie:width>
-            <kie:width>352</kie:width>
+            <kie:width>371</kie:width>
           </kie:ComponentWidths>
         </kie:ComponentsWidthsExtension>
       </di:extension>
